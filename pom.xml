@@ -81,28 +81,31 @@
 
                 <configuration>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost/test_task</url>
+                    <url>jdbc:mysql://localhost/</url>
                     <username>root</username>
                     <password>dasska123</password>
+                    <autocommit>true</autocommit>
                 </configuration>
 
                 <executions>
 
                     <execution>
-                        <id>drop-db-before-test-if-any</id>
-                        <phase>process-test-resources</phase>
+                        <id>create_schema</id>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <!-- need another database to drop the targeted one -->
-                            <url>jdbc:mysql://localhost/test_task</url>
-                            <autocommit>true</autocommit>
-                            <sqlCommand>drop database test_task</sqlCommand>
-                            <!-- ignore error when database is not avaiable -->
+                            <srcFiles>
+                                <srcFile>src/main/resources/create_db.sql</srcFile>
+                            </srcFiles>
                             <onError>continue</onError>
                         </configuration>
                     </execution>
+
+
+
+
 
                 </executions>
             </plugin>
