@@ -9,3 +9,4 @@ mvn jetty:run
 ```
 # warning
 please check url to mySQL in [pom.xml](pom.xml)
+please check db settings in [db.properties](db.properties)
