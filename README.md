@@ -5,6 +5,7 @@
 - JSP
 - JavaScript
 - Design patterns : MVC, Factory, Command, Flyweight, Dao
+
 # package and create db 
 ```
 mvn package
